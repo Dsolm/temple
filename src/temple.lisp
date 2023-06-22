@@ -49,7 +49,7 @@ Interpolates as many expressions at compile time as possible. Special (global) v
   ; evaluate any functions embedded in the html tag.
   (setf params-and-contents (mapcar (lambda (x)
                                       (if (equal :comptime (and (listp x) (car x)))
-                                        (eval (second x))
+                                        (eval (cdr x))
                                         (if (specialp x)
                                             x
                                             (handler-case (eval x) (error () x))))) params-and-contents))
