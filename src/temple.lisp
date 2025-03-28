@@ -30,7 +30,6 @@
             (setf str (concatenate 'string str (format nil "~a" item)))))
     (values str args)))
 
-; TODO: interpolate-static-args does not work with runtime lists.
 (defun interpolate-static-args (args)
   (when args
     (multiple-value-bind (str parameters) (interpolate-static-args (cddr args))
